@@ -66,7 +66,7 @@ print(len(x))
 
 # pprint(list(vacancies.find({'salary.min': {'$gt': 250000}})))  # работает!
 # pprint(list(vacancies.find({'salary.max': {'$gt': 250000}})))  # работает!
-# print(list(vacancies.find({'salary': {'min': 300000}})))  # -------------
+# print(list(vacancies.find({'salary': {'min': 300000}})))  # ------------
 # pprint(list(vacancies.find({'salary.min': 300000})))   # работает!
 
 # "salary"["max"]
