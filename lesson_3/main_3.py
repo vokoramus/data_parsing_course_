@@ -8,16 +8,18 @@ db = client['users1502']    # database
 persons = db.persons        # collection
 books = db.books            # collection
 
-# try:
-#     persons.insert_one({"_id": 564843135186,
-#                         "author": "Peter2",
-#                         "age": 38,
-#                         "text": "is cool! Wildberry",
-#                         "tags": ['cool', 'hot', 'ice'],
-#                         "date": '14.06.1983'})
-# except dke:
-#     print('Duplicate key error collection')
+# =================  insert_one  =================
+try:
+    persons.insert_one({"_id": 100,
+                        "author": "Peter2",
+                        "age": 38,
+                        "text": "is cool! Wildberry",
+                        "tags": ['cool', 'hot', 'ice'],
+                        "date": '14.06.1983'})
+except dke:
+    print('Duplicate key error collection')
 
+# =================  insert_many  =================
 # persons.insert_many([{"author": "John",                               # Добавляем несколько документов в базу
 #                "age" : 29,
 #                "text": "Too bad! Strawberry",
@@ -38,7 +40,7 @@ books = db.books            # collection
 #                "date": '08.08.1975',
 #                "tags":['fantastic', 'criminal']}])
 
-
+# =================  find  =================
 # for doc in persons.find({'author': 'Peter2'}):
 #     pprint(doc)
 
@@ -57,6 +59,7 @@ books = db.books            # collection
 # for doc in persons.find({'author': {'$regex': 'J'}}):
 #     pprint(doc)
 
+# =================  find_one  =================
 # result = persons.find_one({'author': 'Peter2'})
 # if result:
 #     print('Found')
@@ -70,13 +73,19 @@ books = db.books            # collection
 ##               "text": "is hot!",
 ##               "date": '11.09.1991'}
 
-
+# =================  update_one  =================
 # persons.update_one({'author': 'Peter2'}, {'$set': new_data})
+
+# =================  replace_one  =================
 # persons.replace_one({'author': 'Andrey'}, new_data)
 
+# =================  delete_one  =================
 # persons.delete_one({'author': 'Peter2'})
 
-##result = persons.delete_one({})
+# result = persons.delete_one({})
+
+# =================  delete_many  =================
+# result = persons.delete_many({})
 
 
 # result = list(persons.find({'author': 'Peter2'}))
@@ -84,3 +93,5 @@ books = db.books            # collection
 
 for doc in persons.find({}):
     pprint(doc)
+
+print(len(list(persons.find({}))))
